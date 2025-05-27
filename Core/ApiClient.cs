@@ -10,24 +10,11 @@ namespace ApiTestingFramework.Core
         private readonly RestClient _client;
         private readonly ILogger _logger;
 
-        public ApiClient()
+        public ApiClient(IConfiguration configuration)
         {
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
-
             var baseUrl = configuration["ApiSettings:BaseUrl"];
-            var minLogLevel = configuration["Serilog:MinimumLevel:Default"];
-
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(configuration)
-                .WriteTo.Console()
-                .WriteTo.File("logs/apitesting.log", rollingInterval: RollingInterval.Day)
-                .CreateLogger();
-
             _logger = Log.ForContext<ApiClient>();
             _logger.Information("Initializing ApiClient with base URL: {BaseUrl}", baseUrl);
-
             _client = new RestClient(baseUrl);
         }
 

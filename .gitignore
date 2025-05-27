@@ -1,0 +1,44 @@
+# .NET Build Output
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+
+# Visual Studio / IDE-specific
+.vs/
+.vscode/
+.idea/
+*.sln.iml
+
+# Log Files
+logs/
+*.log
+
+# NuGet Packages
+*.nupkg
+packages/
+
+# Test Results
+TestResults/
+*.trx
+
+# Temporary Files
+*.tmp
+*.bak
+*.cache
+*.swp
+*~
+
+# Other
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rchive/
+
+# Keep important files
+!*.cs
+!*.csproj
+!*.sln
+!appsettings.json
