@@ -1,0 +1,89 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: 'Browser for UI tests (e.g., chrome)'
+        required: true
+        default: 'chrome'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '3.1.x'
+
+      # Install Chrome for UI tests
+      - name: Install Google Chrome
+        run: |
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      # Install jq for JSON manipulation
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      # Restore NuGet packages
+      - name: Restore dependencies
+        run: dotnet restore ApiTestingFramework.sln
+
+      # Build the solution
+      - name: Build solution
+        run: dotnet build ApiTestingFramework.sln --configuration Release --no-restore
+
+      # Run API tests
+      - name: Run API tests
+        run: dotnet test Tests/ApiTestingFramework.Tests.csproj --no-build --filter Category=API --logger "trx;LogFileName=api-tests.trx"
+        continue-on-error: true # Continue even if API tests fail
+
+      # Update appsettings.json with browser selection for manual runs
+      - name: Configure browser for UI tests
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          jq '.BrowserSettings.BrowserType = "${{ github.event.inputs.browser }}"' Tests/appsettings.json > Tests/appsettings.json.tmp
+          mv Tests/appsettings.json.tmp Tests/appsettings.json
+
+      # Run UI tests
+      - name: Run UI tests
+        run: dotnet test Tests/ApiTestingFramework.Tests.csproj --no-build --filter Category=UI --logger "trx;LogFileName=ui-tests.trx"
+
+      # Publish test results
+      - name: Publish test results
+        uses: dorny/test-reporter@v1
+        if: always() # Run even if tests fail
+        with:
+          name: Test Results
+          path: Tests/*.trx
+          reporter: dotnet-trx
+          fail-on-error: false
+
+      # Publish screenshots and logs as artifacts
+      - name: Publish artifacts
+        if: always() # Run even if tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifacts
+          path: |
+            Tests/screenshots/
+            Tests/logs/
+          retention-days: 7
