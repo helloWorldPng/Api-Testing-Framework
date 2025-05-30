@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using RestSharp;
 using Serilog;
+using Serilog.Settings.Configuration;
 using System;
 
 namespace ApiTestingFramework.Core
@@ -17,7 +18,10 @@ namespace ApiTestingFramework.Core
                 .Build();
 
             var baseUrl = configuration["ApiSettings:BaseUrl"];
-            var minLogLevel = configuration["Serilog:MinimumLevel:Default"];
+            if (string.IsNullOrEmpty(baseUrl))
+            {
+                throw new InvalidOperationException("BaseUrl is not configured in appsettings.json");
+            }
 
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(configuration)
@@ -46,7 +50,7 @@ namespace ApiTestingFramework.Core
             var response = _client.Execute<T>(request);
             _logger.Information("Received response: StatusCode={StatusCode}, ContentLength={ContentLength}",
                 response.StatusCode, response.Content?.Length);
-            return response.Data;
+            return response.Data ?? new T();
         }
     }
 }

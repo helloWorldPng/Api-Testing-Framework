@@ -1,0 +1,111 @@
+# Visual Studio / Visual Studio Code
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]nyCPU/
+[Bb]in/
+[Oo]bj/
+*.csproj.bak
+*.sln.bak
+*.cache
+*.ilk
+*.meta
+*.pdb
+*.ipch
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+*.psess
+*.vsp
+*.vspx
+*.sap
+*.iobj
+*.ipdb
+*.log
+*.tlog
+*.tli
+*.tlh
+
+# JetBrains IDEs (e.g., Rider)
+.idea/
+*.iml
+
+# .NET Core / Build Artifacts
+bin/
+obj/
+*.exe
+*.dll
+*.config
+*.msi
+*.msix
+*.appx
+*.nupkg
+*.snupkg
+*.pdb
+*.mdb
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+
+# Logs (from your Serilog configuration)
+logs/
+*.log
+*.log.*
+
+# Test Results
+TestResults/
+*.trx
+*.xml
+*.coverage
+*.coveragexml
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+NuGet.Config
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*~
+*.swp
+*.swo
+
+# OS-Generated Files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Miscellaneous
+*.pidb
+*.scc
+*.vssscc
+*.vspscc
+*.cache
+*.pid
+*.pid.lock
+*.pidlock
+*.stackdump
+*.coverage
+*.coveragexml
+*.testlog
+*.testresult
+*.testresults
+
+# Local Environment Files
+.env
+*.env
+*.local
