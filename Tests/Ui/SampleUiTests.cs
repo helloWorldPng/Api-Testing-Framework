@@ -33,5 +33,20 @@ namespace ApiTestingFramework.Tests
 
             Logger.Information("Test completed successfully");
         }
+
+        [Test]
+        public void Validate_Login_Failure()
+        {
+            Logger.Information("Starting test: Validate_Login_Failure");
+
+            _page.NavigateTo();
+            _page.EnterCredentials("invalid", "wrong");
+            _page.ClickLogin();
+
+            Logger.Information("Validating login failure");
+            Assert.IsFalse(_page.IsLoginSuccessful(), "Login should fail");
+
+            Logger.Information("Test completed successfully");
+        }
     }
 }
