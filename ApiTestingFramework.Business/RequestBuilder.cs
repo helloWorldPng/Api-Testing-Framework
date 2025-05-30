@@ -1,9 +1,15 @@
+using RestSharp;
+
 namespace ApiTestingFramework.Business;
 
-public RequestBuilder(string resource, Method method)
+public class RequestBuilder
 {
-    _request = new RestRequest(resource, method);
-}
+    private readonly RestRequest _request;
+
+    public RequestBuilder(string resource, Method method)
+    {
+        _request = new RestRequest(resource, method);
+    }
 
     public RequestBuilder AddHeader(string name, string value)
     {

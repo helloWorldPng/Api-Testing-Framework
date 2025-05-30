@@ -1,0 +1,61 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTestingFramework.Business", "ApiTestingFramework.Business\ApiTestingFramework.Business.csproj", "{GUID1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTestingFramework.Core", "ApiTestingFramework.Core\ApiTestingFramework.Core.csproj", "{GUID2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTestingFramework.Tests", "ApiTestingFramework.Tests\ApiTestingFramework.Tests.csproj", "{GUID3}"
+EndProject
+Global
+    GlobalSection(SolutionConfigurationPlatforms) = preSolution
+        Debug|Any CPU = Debug|Any CPU
+        Debug|x64 = Debug|x64
+        Debug|x86 = Debug|x86
+        Release|Any CPU = Release|Any CPU
+        Release|x64 = Release|x64
+        Release|x86 = Release|x86
+    EndGlobalSection
+    GlobalSection(ProjectConfigurationPlatforms) = postSolution
+        {GUID1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {GUID1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {GUID1}.Debug|x64.ActiveCfg = Debug|Any CPU
+        {GUID1}.Debug|x64.Build.0 = Debug|Any CPU
+        {GUID1}.Debug|x86.ActiveCfg = Debug|Any CPU
+        {GUID1}.Debug|x86.Build.0 = Debug|Any CPU
+        {GUID1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {GUID1}.Release|Any CPU.Build.0 = Release|Any CPU
+        {GUID1}.Release|x64.ActiveCfg = Release|Any CPU
+        {GUID1}.Release|x64.Build.0 = Release|Any CPU
+        {GUID1}.Release|x86.ActiveCfg = Release|Any CPU
+        {GUID1}.Release|x86.Build.0 = Release|Any CPU
+        {GUID2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {GUID2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {GUID2}.Debug|x64.ActiveCfg = Debug|Any CPU
+        {GUID2}.Debug|x64.Build.0 = Debug|Any CPU
+        {GUID2}.Debug|x86.ActiveCfg = Debug|Any CPU
+        {GUID2}.Debug|x86.Build.0 = Debug|Any CPU
+        {GUID2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {GUID2}.Release|Any CPU.Build.0 = Release|Any CPU
+        {GUID2}.Release|x64.ActiveCfg = Release|Any CPU
+        {GUID2}.Release|x64.Build.0 = Release|Any CPU
+        {GUID2}.Release|x86.ActiveCfg = Release|Any CPU
+        {GUID2}.Release|x86.Build.0 = Release|Any CPU
+        {GUID3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {GUID3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {GUID3}.Debug|x64.ActiveCfg = Debug|Any CPU
+        {GUID3}.Debug|x64.Build.0 = Debug|Any CPU
+        {GUID3}.Television|x86.ActiveCfg = Debug|Any CPU
+        {GUID3}.Debug|x86.Build.0 = Debug|Any CPU
+        {GUID3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {GUID3}.Release|Any CPU.Build.0 = Release|Any CPU
+        {GUID3}.Release|x64.ActiveCfg = Release|Any CPU
+        {GUID3}.Release|x64.Build.0 = Release|Any CPU
+        {GUID3}.Release|x86.ActiveCfg = Release|Any CPU
+        {GUID3}.Release|x86.Build.0 = Release|Any CPU
+    EndGlobalSection
+    GlobalSection(SolutionProperties) = preSolution
+        HideSolutionNode = FALSE
+    EndGlobalSection
+EndGlobal

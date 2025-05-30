@@ -1,5 +1,0 @@
-C:\Users\n.bissenbay\Desktop\ApiTestingFramework\ApiTests\obj\Debug\net9.0\ApiTests.csproj.AssemblyReference.cache
-C:\Users\n.bissenbay\Desktop\ApiTestingFramework\ApiTests\obj\Debug\net9.0\ApiTests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\n.bissenbay\Desktop\ApiTestingFramework\ApiTests\obj\Debug\net9.0\ApiTests.AssemblyInfoInputs.cache
-C:\Users\n.bissenbay\Desktop\ApiTestingFramework\ApiTests\obj\Debug\net9.0\ApiTests.AssemblyInfo.cs
-C:\Users\n.bissenbay\Desktop\ApiTestingFramework\ApiTests\obj\Debug\net9.0\ApiTests.csproj.CoreCompileInputs.cache
